@@ -45,14 +45,14 @@ class StarRating extends Component {
     let starButtons = [];
 
     for (let i = 0; i < this.state.maxStars; i++) {
-      let starIconName = this.props.emptyStar;
+      let iconName = this.props.emptyIconName;
       let starColor = this.props.emptyStarColor;
 
       if (starsLeft >= 1) {
-        starIconName = this.props.fullStar;
+        iconName = this.props.iconName;
         starColor = this.props.starColor;
       } else if (starsLeft === 0.5) {
-        starIconName = this.props.halfStar;
+        iconName = this.props.halfStar;
         starColor = this.props.starColor;
       }
 
@@ -65,7 +65,7 @@ class StarRating extends Component {
           onStarButtonPress={this.onStarButtonPress}
           iconSet={this.props.iconSet}
           starSize={this.props.starSize}
-          starIconName={starIconName}
+          iconName={iconName}
           starColor={starColor}
         />
       );
@@ -92,6 +92,10 @@ StarRating.propTypes = {
   starColor: PropTypes.string,
   emptyStarColor: PropTypes.string,
   starSize: PropTypes.number,
+  iconName: PropTypes.string,
+  emptyIconName: PropTypes.string,
+  iconW: PropTypes.number,
+  iconH: PropTypes.number
 };
 
 StarRating.defaultProps = {
@@ -104,7 +108,7 @@ StarRating.defaultProps = {
   rating: 0,
   starColor: 'black',
   emptyStarColor: 'gray',
-  starSize: 40,
+  starSize: 40
 };
 
 export default StarRating;

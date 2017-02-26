@@ -3,6 +3,7 @@ import React, {
   Component,
   PropTypes,
 } from 'react';
+import { View, Image } from 'react-native'
 
 // Third party imports
 import Button from 'react-native-button';
@@ -51,10 +52,7 @@ class StarButton extends Component {
           width: this.props.starSize,
         }}
       >
-        <Icon
-          name={this.props.starIconName}
-          size={this.props.starSize}
-          color={this.props.starColor}
+        <Image source={this.props.iconName}
         />
       </Button>
     );
@@ -67,7 +65,7 @@ StarButton.propTypes = {
   onStarButtonPress: PropTypes.func,
   iconSet: PropTypes.string,
   starSize: PropTypes.number,
-  starIconName: PropTypes.string,
+  iconName: PropTypes.string,
   starColor: PropTypes.string,
 };
 
