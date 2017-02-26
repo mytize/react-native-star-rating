@@ -47,10 +47,12 @@ class StarRating extends Component {
     for (let i = 0; i < this.state.maxStars; i++) {
       let iconName = this.props.emptyIconName;
       let starColor = this.props.emptyStarColor;
+      let symbolEmpty = true
 
       if (starsLeft >= 1) {
         iconName = this.props.iconName;
         starColor = this.props.starColor;
+        symbolEmpty = false
       } else if (starsLeft === 0.5) {
         iconName = this.props.halfStar;
         starColor = this.props.starColor;
@@ -67,6 +69,9 @@ class StarRating extends Component {
           starSize={this.props.starSize}
           iconName={iconName}
           starColor={starColor}
+          symbol={this.props.symbol}
+          symbolEmpty={symbolEmpty}
+          style={this.props.style}
         />
       );
       starsLeft--;
@@ -95,7 +100,9 @@ StarRating.propTypes = {
   iconName: PropTypes.string,
   emptyIconName: PropTypes.string,
   iconW: PropTypes.number,
-  iconH: PropTypes.number
+  iconH: PropTypes.number,
+  symbol: PropTypes.string,
+  style: PropTypes.object
 };
 
 StarRating.defaultProps = {
